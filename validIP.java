@@ -5,7 +5,6 @@
 import java.util.*;
 
 public class validIP {
-
     public static void main(String[] args) {
        ArrayList<String> result = possibleIPs("12212235");
 
@@ -14,7 +13,6 @@ public class validIP {
        }
 
     }
-
 
     public static final MAX_OCTET_LEN = 3;
     public static final MIN_OCTET_LEN = 1;
