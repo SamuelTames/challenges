@@ -6,7 +6,7 @@ import java.util.*;
 
 public class validIP {
     public static void main(String[] args) {
-        String digits = "2552551135";
+        String digits = "25525511135";
 
         if (args.length > 0) {
             digits = args[0];
