@@ -6,7 +6,13 @@ import java.util.*;
 
 public class validIP {
     public static void main(String[] args) {
-        for (String s : possibleIPs("12212235")) {
+        String digits = "2552551135";
+
+        if (args.length > 0) {
+            digits = args[0];
+        }
+
+        for (String s : possibleIPs(digits)) {
             System.out.println(s);
         }
     }
