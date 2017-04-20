@@ -7,8 +7,8 @@ import java.util.*;
 public class validIP {
     public static void main(String[] args) {
         for (String s : possibleIPs("12212235")) {
-           System.out.println(s);
-       }
+            System.out.println(s);
+        }
     }
 
     public static final int MAX_OCTET_LEN = 3;
@@ -19,10 +19,10 @@ public class validIP {
     public static ArrayList<String> possibleIPs(String input) {
         ArrayList<String> result = new ArrayList<>();
 
-        if (input.length() > MAX_IPV4_LEN || input.length() < MIN_IPV4_LEN) {
+        if (input == null) {
             return result;
         }
-        if (input == null) {
+        if (input.length() > MAX_IPV4_LEN || input.length() < MIN_IPV4_LEN) {
             return result;
         }
 
@@ -58,6 +58,7 @@ public class validIP {
         if (octet.length() > MAX_OCTET_LEN || octet.length() < MIN_OCTET_LEN) {
             return false;
         }
+
         if (octet.length() != 1 && octet.charAt(0) == '0') {
             return false;
         }
