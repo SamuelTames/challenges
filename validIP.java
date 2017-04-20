@@ -5,6 +5,7 @@
 import java.util.*;
 
 public class validIP {
+
     public static void main(String[] args) {
        ArrayList<String> result = possibleIPs("12212235");
 
@@ -13,15 +14,22 @@ public class validIP {
        }
 
     }
+
+
+    public static final MAX_OCTET_LEN = 3;
+    public static final MIN_OCTET_LEN = 1;
+    public static final MAX_IPV4_LEN = MAX_OCTET_LEN * 4;
+    public static final MIN_IPV4_LEN = MIN_OCTET_LEN * 4;
+
     public static ArrayList<String> possibleIPs(String input) {
-        if (input.length() > 12 || input.length() < 4) {
-            return null;
+        ArrayList<String> result = new ArrayList<>();
+
+        if (input.length() > MAX_IPV4_LEN || input.length() < MIN_IPV4_LEN) {
+            return result;
         }
         if (input == null) {
-            return null;
+            return result;
         }
-
-        ArrayList<String> result = new ArrayList<>();
 
         possibleIPs(result, new String[] {"","","",""}, 0, input, 0);
 
@@ -39,7 +47,7 @@ public class validIP {
         }
 
         String generatedOctet = octets[octetsIndex];
-        for (int i = poolIndex; i < pool.length() && i < poolIndex+3; i++) {
+        for (int i = poolIndex; i < pool.length() && i < poolIndex+MAX_OCTET_LEN; i++) {
             generatedOctet += pool.charAt(i);
 
             if (validOctet(generatedOctet)) {
@@ -52,7 +60,7 @@ public class validIP {
     }
 
     public static boolean validOctet(String octet) {
-        if (octet.length() > 3 || octet.length() < 1) {
+        if (octet.length() > MAX_OCTET_LEN || octet.length() < MIN_OCTET_LEN) {
             return false;
         }
         if (octet.length() != 1 && octet.charAt(0) == '0') {
