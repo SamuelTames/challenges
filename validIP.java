@@ -6,18 +6,15 @@ import java.util.*;
 
 public class validIP {
     public static void main(String[] args) {
-       ArrayList<String> result = possibleIPs("12212235");
-
-       for (String s : result) {
+        for (String s : possibleIPs("12212235")) {
            System.out.println(s);
        }
-
     }
 
-    public static final MAX_OCTET_LEN = 3;
-    public static final MIN_OCTET_LEN = 1;
-    public static final MAX_IPV4_LEN = MAX_OCTET_LEN * 4;
-    public static final MIN_IPV4_LEN = MIN_OCTET_LEN * 4;
+    public static final int MAX_OCTET_LEN = 3;
+    public static final int MIN_OCTET_LEN = 1;
+    public static final int MAX_IPV4_LEN = MAX_OCTET_LEN * 4;
+    public static final int MIN_IPV4_LEN = MIN_OCTET_LEN * 4;
 
     public static ArrayList<String> possibleIPs(String input) {
         ArrayList<String> result = new ArrayList<>();
